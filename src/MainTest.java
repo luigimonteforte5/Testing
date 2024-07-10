@@ -17,14 +17,14 @@ public class MainTest {
 	@Test
 	public void TestPattern(){
 		String formattedDate = data.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(Locale.ITALY));
-		assertEquals("20 maggio 2024", formattedDate);
+		assertEquals("20 maggio 2024", formattedDate, "Controlla che il formato della data stampata sia corretto");
 	}
 
 	@Test
 	public void TestException(){
 		assertThrows(DateTimeParseException.class, () ->
 			{OffsetDateTime testData = OffsetDateTime.parse("2024-05-2015:06:00Z");
-			});
+			}, "Controlla che se la data viene inserita in un formato non corretto viene lanciata un'eccezione");
 	}
 
 }
